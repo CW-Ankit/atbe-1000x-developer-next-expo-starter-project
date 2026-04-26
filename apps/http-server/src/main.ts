@@ -1,4 +1,5 @@
 import { getLogger } from "@starterp/api";
+import { serve } from "@hono/node-server";
 import "reflect-metadata";
 import { createContainer } from "./di/container";
 import { createServer } from "./server";
@@ -45,8 +46,8 @@ logger.info("App initialized");
 const server = createServer(container);
 
 logger.info(`Starting server at port ${port}`);
-Bun.serve({
-  port,
+serve({
+  port: Number(port),
   fetch: server.fetch,
 });
 

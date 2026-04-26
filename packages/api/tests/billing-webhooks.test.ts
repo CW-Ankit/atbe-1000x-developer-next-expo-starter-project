@@ -1,5 +1,5 @@
 import type { User } from "@starterp/models";
-import { beforeEach, describe, expect, jest, mock, test } from "bun:test";
+import { beforeEach, describe, expect, jest, test, vi } from "vitest";
 import { Container } from "inversify";
 import type Stripe from "stripe";
 import { v4 as uuidv4 } from "uuid";
@@ -70,7 +70,7 @@ describe("BillingService Webhook Handlers", () => {
 
     // Mock app config
     mockAppConfig = {
-      getAppConfig: mock(() => ({
+      getAppConfig: vi.fn(() => ({
         stripeSecretKey: TEST_STRIPE_SECRET_KEY,
         premiumMonthlyStripeProductId: TEST_PREMIUM_PRODUCT_ID,
       })),

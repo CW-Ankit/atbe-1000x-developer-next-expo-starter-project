@@ -22,7 +22,7 @@ This is the mobile app for Starter Project, built with Expo, React Native, Nativ
 
 ### Prerequisites
 
-- Bun installed on your machine
+- pnpm installed on your machine
 - Expo Go app on your phone (for testing)
 - iOS Simulator (Mac only) or Android Emulator
 
@@ -35,7 +35,7 @@ cd apps/expo-app
 
 2. Install dependencies:
 ```bash
-bun install
+pnpm install
 ```
 
 ### Running the App
@@ -44,7 +44,7 @@ bun install
 
 Start the Expo development server:
 ```bash
-bun run start
+pnpm run start
 ```
 
 This will open the Expo developer tools in your browser.
@@ -52,19 +52,19 @@ This will open the Expo developer tools in your browser.
 #### Run on iOS (Mac only)
 
 ```bash
-bun run ios
+pnpm run ios
 ```
 
 #### Run on Android
 
 ```bash
-bun run android
+pnpm run android
 ```
 
 #### Run on Web
 
 ```bash
-bun run web
+pnpm run web
 ```
 
 ### API Configuration
@@ -115,8 +115,8 @@ The app includes a login screen that uses the tRPC `user.login` endpoint. After 
 To create a production build:
 
 ```bash
-bun run build:ios     # iOS build
-bun run build:android # Android build
+pnpm run build:ios     # iOS build
+pnpm run build:android # Android build
 ```
 
 For more detailed build instructions, refer to the [Expo documentation](https://docs.expo.dev/build/introduction/).

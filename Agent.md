@@ -8,7 +8,7 @@ This project is a a demonstration of principles for building AI-friendly codebas
 
 ## Package Manager & Commands
 
-This project uses **Bun** for all package management and code execution.
+This project uses **pnpm** for all package management and code execution.
 
 ### Essential Commands
 
@@ -25,9 +25,9 @@ This project uses **Bun** for all package management and code execution.
 - `task test` - Run tests in all packages
 
 **Dependencies:**
-- `bun install` - Install all dependencies (default)
-- `bun run install:ci` - Install dependencies excluding electron-app (for CI/Vercel)
-- `bun run install:electron` - Install only electron-app dependencies
+- `pnpm install` - Install all dependencies (default)
+- `pnpm run install:ci` - Install dependencies excluding electron-app (for CI/Vercel)
+- `pnpm run install:electron` - Install only electron-app dependencies
 
 ## Architecture
 
@@ -108,4 +108,4 @@ There will most likely be a file somewhere in that tree that will help you write
 
 - API tests: `packages/api/tests/`
 - Run all tests: `task test`
-- Individual package tests: `cd packages/[name] && bun run test`
+- Individual package tests: `cd packages/[name] && pnpm run test`

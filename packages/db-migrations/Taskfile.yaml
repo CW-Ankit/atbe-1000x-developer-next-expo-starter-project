@@ -5,17 +5,17 @@ tasks:
     dir: packages/db-migrations
     desc: "Generate new database migrations"
     cmds:
-      - pwd && bun run drizzle-kit generate
+      - pwd && pnpm run drizzle-kit generate
 
   apply-migrations:
     dir: packages/db-migrations
     desc: "Run drizzle-kit migrate"
     cmds:
-      - pwd && bun run drizzle-kit migrate 
+      - pwd && pnpm run drizzle-kit migrate 
 
   apply-migrations-prod:
     dotenv: ['../../.secrets.prod']
     dir: packages/db-migrations
     desc: "Run drizzle-kit migrate"
     cmds:
-      - pwd && bun run drizzle-kit migrate 
+      - pwd && pnpm run drizzle-kit migrate 

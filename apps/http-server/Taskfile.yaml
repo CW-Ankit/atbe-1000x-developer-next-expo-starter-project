@@ -6,7 +6,7 @@ tasks:
     dir: apps/http-server
     desc: "Run the API locally using Wrangler (Cloudflare Workers runtime)"
     cmds:
-      - bunx wrangler dev --env development
+      - pnpm dlx wrangler dev --env development
 
   secrets:set:prod:
     dir: apps/http-server
@@ -22,19 +22,19 @@ tasks:
         echo -n "Setting production secrets..."
 
         echo -n "Setting DATABASE_URL... $DATABASE_URL"
-        echo -n "$DATABASE_URL" | bunx wrangler secret put DATABASE_URL --env production
+        echo -n "$DATABASE_URL" | pnpm dlx wrangler secret put DATABASE_URL --env production
 
         echo "Setting GOTRUE_SERVICE_ROLE_KEY..."
-        echo -n "$GOTRUE_SERVICE_ROLE_KEY" | bunx wrangler secret put GOTRUE_SERVICE_ROLE_KEY --env production
+        echo -n "$GOTRUE_SERVICE_ROLE_KEY" | pnpm dlx wrangler secret put GOTRUE_SERVICE_ROLE_KEY --env production
 
         echo "Setting JWT_SECRET..."
-        echo -n "$JWT_SECRET" | bunx wrangler secret put JWT_SECRET --env production
+        echo -n "$JWT_SECRET" | pnpm dlx wrangler secret put JWT_SECRET --env production
 
         echo "Setting STRIPE_WEBHOOK_SECRET..."
-        echo -n "$STRIPE_WEBHOOK_SECRET" | bunx wrangler secret put STRIPE_WEBHOOK_SECRET --env production
+        echo -n "$STRIPE_WEBHOOK_SECRET" | pnpm dlx wrangler secret put STRIPE_WEBHOOK_SECRET --env production
 
         echo "Setting STRIPE_SECRET_KEY..."
-        echo -n "$STRIPE_SECRET_KEY" | bunx wrangler secret put STRIPE_SECRET_KEY --env production
+        echo -n "$STRIPE_SECRET_KEY" | pnpm dlx wrangler secret put STRIPE_SECRET_KEY --env production
 
         echo "Done setting production secrets"
 
@@ -42,27 +42,27 @@ tasks:
     dir: apps/http-server
     desc: "List secrets for production environment"
     cmds:
-      - bunx wrangler secret list --env production
+      - pnpm dlx wrangler secret list --env production
 
   tail:prod:
     dir: apps/http-server
     desc: "Tail logs from production environment"
     cmds:
-      - bunx wrangler tail --env production
+      - pnpm dlx wrangler tail --env production
 
   # Build and type check
   build:
     dir: apps/http-server
     desc: "Build the API for production"
     cmds:
-      - bun run lint
+      - pnpm run lint
       - echo "Build complete - Cloudflare Workers uses source files directly"
 
   deploy:prod:
     dir: apps/http-server
     desc: "Deploy API to Cloudflare Workers (production environment)"
     cmds:
-      - bunx wrangler deploy --env production
+      - pnpm dlx wrangler deploy --env production
 
   deploy:prod:check:
     dir: packages/api

@@ -43,18 +43,18 @@ tasks:
   install:all:
     desc: "Install all dependencies"
     cmds:
-      - bun install
+      - pnpm install
 
   lint:
     desc: "Lint TypeScript code in api, db, and tooling packages"
     cmds:
       - |
         echo "Linting all packages in parallel"
-        cd apps/http-server && bun run lint & \
-        cd packages/db && bun run lint & \
-        cd packages/db-migrations && bun run lint & \
-        cd packages/tooling && bun run lint & \
-        cd apps/expo-app && bun run lint & \
+        cd apps/http-server && pnpm run lint & \
+        cd packages/db && pnpm run lint & \
+        cd packages/db-migrations && pnpm run lint & \
+        cd packages/tooling && pnpm run lint & \
+        cd apps/expo-app && pnpm run lint & \
         wait
       
   lint:fix:
@@ -62,11 +62,11 @@ tasks:
     cmds:
       - |
         echo "Linting all packages in parallel"
-        cd packages/api && bun run lint:fix & \
-        cd packages/db && bun run lint:fix & \
-        cd packages/db-migrations && bun run lint:fix & \
-        cd packages/tooling && bun run lint:fix & \
-        cd apps/expo-app && bun run lint:fix & \
+        cd packages/api && pnpm run lint:fix & \
+        cd packages/db && pnpm run lint:fix & \
+        cd packages/db-migrations && pnpm run lint:fix & \
+        cd packages/tooling && pnpm run lint:fix & \
+        cd apps/expo-app && pnpm run lint:fix & \
         wait
   
   lint:fix:type-check:
@@ -75,12 +75,12 @@ tasks:
       - task: lint:fix
       - |
         echo "Type checking all packages in parallel"
-        cd packages/api && bun run type-check & \
-        cd packages/db && bun run type-check & \
-        cd packages/db-migrations && bun run type-check & \
-        cd packages/tooling && bun run type-check & \
-        cd utils/seed-data && bun run type-check & \
-        cd apps/expo-app && bun run type-check & \
+        cd packages/api && pnpm run type-check & \
+        cd packages/db && pnpm run type-check & \
+        cd packages/db-migrations && pnpm run type-check & \
+        cd packages/tooling && pnpm run type-check & \
+        cd utils/seed-data && pnpm run type-check & \
+        cd apps/expo-app && pnpm run type-check & \
         wait
   
   test:
@@ -88,9 +88,9 @@ tasks:
     cmds:
       - |
         echo "Running tests in all packages in parallel"
-        cd packages/api && bun run test & \
-        cd apps/http-server && bun run test & \
-        cd packages/tooling && bun run test & \
+        cd packages/api && pnpm run test & \
+        cd apps/http-server && pnpm run test & \
+        cd packages/tooling && pnpm run test & \
         wait
       
   docker:start:
@@ -113,7 +113,7 @@ tasks:
     cmds:
       - |
         echo "Installing dependencies"
-        bun install
+        pnpm install
       - task: docker:destroy
       - task: docker:start
       - task: db-migrations:apply-migrations
@@ -124,7 +124,7 @@ tasks:
     cmds:
       - |
         echo "Installing dependencies"
-        bun install
+        pnpm install
 
       - task: initialize-env-files
 
@@ -134,16 +134,16 @@ tasks:
       - task: db-migrations:apply-migrations
 
       - |
-        bunx concurrently --restart-tries 99999999 --restart-after 1000 -n http-server,openapi,next-app,drizzle-studio \
-         "cd apps/http-server && bun run dev" \
-         "cd apps/http-server && bun run dev:openapi" \
-         "cd apps/next-app && bun run dev" \
-         "cd packages/db-migrations && bun run drizzle-kit studio --port 8082"
+        pnpm dlx concurrently --restart-tries 99999999 --restart-after 1000 -n http-server,openapi,next-app,drizzle-studio \
+         "cd apps/http-server && pnpm run dev" \
+         "cd apps/http-server && pnpm run dev:openapi" \
+         "cd apps/next-app && pnpm run dev" \
+         "cd packages/db-migrations && pnpm run drizzle-kit studio --port 8082"
 
   seed:
     desc: "Seed the database with initial data"
     cmds:
-      - cd utils/seed-data && bun run seed
+      - cd utils/seed-data && pnpm run seed
 
   clean:node_modules:
     desc: "Clean node_modules"
