@@ -52,7 +52,7 @@ Neon has native support for Postgres over websockets, which works with Cloudflar
     ```
 8. Run the migrations against the neon database by running `task db-migrations:apply-migrations-prod` -- the output will look like this:
    ```bash
-    task: [db-migrations:apply-migrations-prod] pwd && bun run drizzle-kit migrate
+    task: [db-migrations:apply-migrations-prod] pwd && pnpm run drizzle-kit migrate
     /Users/ibrahimahmed/code/1000x-developer/packages/db-migrations
     $ drizzle-kit migrate
     No config path provided, using default 'drizzle.config.ts'
@@ -133,7 +133,7 @@ Cloudflare Workers are:
 - Easy to debug
 
 1. Create a new Cloudflare account
-2. Login to wrangler by running `bunx wrangler login`
+2. Login to wrangler by running `pnpm dlx wrangler login`
 3. Update the `apps/http-server/wrangler.toml` file with the following changes:
 
     ```toml
@@ -145,7 +145,7 @@ Cloudflare Workers are:
 
     ```bash
     task http-server:deploy:prod
-    task: [http-server:deploy:prod] bunx wrangler deploy --env production
+    task: [http-server:deploy:prod] pnpm dlx wrangler deploy --env production
 
     ⛅️ wrangler 4.30.0
     ─────────────────────────────────────────────
@@ -192,9 +192,9 @@ any platform that can run a NextJS app, I just happen to like Vercel.
 2. Point at your forked repo
 3. The "Root Directory" should automatically be set to `apps/next-app`, if not, set it to `apps/next-app`
 4. Expand the "Build and Output Settings" section and set the "Output Directory" to `apps/next-app/.next` and set:
-    - `Build Command` to `bun run build`
+    - `Build Command` to `pnpm run build`
     - `Output Directory` to `.next`
-    - `Install Command` to `bun install`
+    - `Install Command` to `pnpm install`
 5. Expand the "Environment Variables" section and set the following variables:
     - `NEXT_PUBLIC_GOTRUE_URL` to the GoTrue server URL (it'll look like `https://1000x-developer-expo-next-starter-project-production.up.railway.app`)
     - `NEXT_PUBLIC_TRPC_SERVER_URL` to the API URL (it'll look like `https://starter-project-api-production.abeahmed2.workers.dev`)

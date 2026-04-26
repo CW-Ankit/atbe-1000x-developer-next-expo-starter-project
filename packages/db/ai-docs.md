@@ -64,4 +64,4 @@ const db = drizzle(client, { schema });
 
 ---
 
-For more, see `ai-docs/internal-documentation/database-setup.md` and Drizzle ORM docs.
+For more, see `docs/internal-documentation/database-setup.md` and Drizzle ORM docs.

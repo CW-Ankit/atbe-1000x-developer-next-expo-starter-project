@@ -34,7 +34,7 @@ This command will:
 You can also run the seeding script manually:
 
 ```bash
-cd utils/seed-data && bun run seed
+cd utils/seed-data && pnpm run seed
 ```
 
 ## Features

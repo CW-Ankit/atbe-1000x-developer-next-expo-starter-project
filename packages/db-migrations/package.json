@@ -19,7 +19,6 @@
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "@types/pg": "^8.11.6",
     "drizzle-kit": "^0.31.1"
   },
@@ -31,5 +30,6 @@
     "@starterp/tooling": "workspace:*",
     "drizzle-orm": "^0.44.2",
     "pg": "^8.11.5"
-  }
+  },
+  "packageManager": "pnpm@10.18.0"
 }

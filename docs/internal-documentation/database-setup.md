@@ -9,7 +9,7 @@ The monorepo uses Drizzle ORM for database management with PostgreSQL as the dat
 - **ORM**: Drizzle ORM
 - **Database**: PostgreSQL
 - **Migration Tool**: drizzle-kit
-- **Package Manager**: bun
+- **Package Manager**: pnpm
 
 ## Package Structure
 
@@ -95,7 +95,7 @@ task db:generate-migrations
 
 # Or directly in db package
 cd packages/db
-bun run drizzle-kit generate
+pnpm run drizzle-kit generate
 ```
 
 ### Migration Files
@@ -175,7 +175,7 @@ task destroy-docker
 
 ### Common Issues
 
-1. **Module not found errors**: Run `bun install` in the db package
+1. **Module not found errors**: Run `pnpm install` in the db package
 2. **Migration generation fails**: Check database connection and credentials
 3. **Type errors**: Run the linter to identify issues
 
@@ -188,6 +188,6 @@ The db package requires:
 Install missing dependencies:
 ```bash
 cd packages/db
-bun install drizzle-orm
-bun install -D drizzle-kit
+pnpm install drizzle-orm
+pnpm install -D drizzle-kit
 ``` 

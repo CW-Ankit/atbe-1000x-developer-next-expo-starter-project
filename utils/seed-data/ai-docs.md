@@ -28,7 +28,7 @@ The `utils/seed-data` package provides a utility for seeding the database with i
   You can run it directly with:
 
   ```bash
-  cd utils/seed-data && bun run seed
+  cd utils/seed-data && pnpm run seed
   ```
 
 ## What Gets Seeded

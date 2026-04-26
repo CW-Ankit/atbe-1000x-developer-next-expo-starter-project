@@ -40,12 +40,12 @@ The configuration includes:
 # Check for lint errors
 task lint
 # or
-bun run lint
+pnpm run lint
 
 # Fix auto-fixable errors
 task lint:fix
 # or
-bun run lint:fix
+pnpm run lint:fix
 ```
 
 ### Adding to New Packages

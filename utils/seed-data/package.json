@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "seed": "bun run src/index.ts",
+    "seed": "tsx src/index.ts",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix"
@@ -21,5 +21,9 @@
     "@starterp/db": "workspace:*",
     "@starterp/tooling": "workspace:*",
     "nanoid": "^5.0.9"
+  },
+  "packageManager": "pnpm@10.18.0",
+  "devDependencies": {
+    "tsx": "^4.20.6"
   }
 }

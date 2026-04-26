@@ -4,8 +4,9 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest",
-    "wrangler": "^4.20.3"
+    "wrangler": "^4.20.3",
+    "tsx": "^4.20.6",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -33,12 +34,13 @@
     "zod": "^3.25.64"
   },
   "scripts": {
-    "dev": "bun run --watch src/main.ts",
-    "dev:openapi": "bun run --watch src/openapi-server-main.ts",
+    "dev": "tsx watch src/main.ts",
+    "dev:openapi": "tsx watch src/openapi-server-main.ts",
     "lint": "eslint --cache src",
     "lint:fix": "eslint --cache src --fix",
-    "test": "bun test",
+    "test": "vitest run",
     "type-check": "tsc --noEmit",
     "wranger": "wrangler"
-  }
+  },
+  "packageManager": "pnpm@10.18.0"
 }

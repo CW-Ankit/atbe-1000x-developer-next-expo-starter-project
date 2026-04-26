@@ -15,7 +15,7 @@ For the best results, you should:
 
 ## Core Components
 
-This project is a `bun` monorepo with the following core components:
+This project is a `pnpm` monorepo with the following core components:
 
 - `packages/api`: The API with services defined using the repository pattern.
 - `apps/http-server`: The HTTP server with tRPC endpoints. Deployable to Cloudflare Workers.
@@ -33,7 +33,7 @@ To run the project, you need to have:
 
 - `docker` (download <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer">here</a>) installed and running
 - `task` (<a href="https://taskfile.dev/installation/" target="_blank" rel="noopener noreferrer">instructions here</a>)
-- `bun` (download <a href="https://bun.sh/docs/installation" target="_blank" rel="noopener noreferrer">here</a>)
+- `pnpm` (download <a href="https://pnpm.io/installation" target="_blank" rel="noopener noreferrer">here</a>)
 
 Once you have those dependencies installed, you can initialize the .env files with:
 
@@ -109,7 +109,7 @@ You can run the app with:
 
 ```bash
 cd apps/expo-app
-bun run start
+pnpm run start
 ```
 
 This will start the app in the Expo Go app.
